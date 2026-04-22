@@ -1,0 +1,36 @@
+ body {
+      background-color: #181616; /* dark theme */
+      color: #f8f9fa;
+    }
+    .form-card {
+      background: #1e1e1e;
+      border: 1px solid #444;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+    }
+    .form-card .card-header {
+      background: #1b1b1b;
+      color: gold;
+      font-weight: bold;
+    }
+    .form-control {
+      background-color: #cfc7c7;
+      color: #f8f9fa;
+      border: 1px solid #555;
+    }
+    .form-control:focus {
+      border-color: rgb(254, 216, 3);
+      box-shadow: 0 0 0 0.2rem rgba(255, 215, 0, 0.25);
+    }
+    .btn-gold {
+      background-color: rgb(247, 211, 6);
+      color: #121212;
+      font-weight: bold;
+    }
+    .btn-gold:hover {
+      background-color: #fafa03;
+      color: #000;
+    }
+    .form-label{
+      color: #fdfdf8;
+    }

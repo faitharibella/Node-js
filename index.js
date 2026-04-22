@@ -1,13 +1,16 @@
 // 1.Dependencies
 const express = require("express");
 const expressSession = require('express-session')
+const path = require('path')
 
 // 2. Instantiations
 const app = express();
 const port = 3000;
 
 // 3. Configurations
-
+//set the templating engine to pug
+app.set('view engine','pug');
+app.set('views', path.join(__dirname, 'views'))
  // 4. Middleware
 // Simple request time logger
 // app.use((req,res,next) => {
@@ -25,6 +28,8 @@ app.use(expressSession({
   resave: false,
   saveUninitialized: false,
 }))
+
+app.use(express.static(path.join(__dirname,'public')))
 
 // Simple request time logger for a specific route
 app.use('/hobbies',(req,res,next)=>{
@@ -97,15 +102,29 @@ app.get('/dog', (req,res) => {
 })
 // Serving HTML files
 
-app.get('/', (req,res) => {
-  res.sendFile(__dirname + '/index.html')
-})
+// app.get('/', (req,res) => {
+//   res.sendFile(__dirname + '/index.html')
+//})
 
 app.get('/register', (req,res) => {
   res.sendFile(__dirname + '/registration.html')
 })
 
+app.get('/',(req,res)=>{
+  res.sendFile(__dirname + '/html/index1.html')
+})
+app.get('/login',(req,res) =>{
+  res.sendFile(__dirname + '/html/login.html')
+})
+app.get('/stock',(req,res)=>{
+  res.sendFile(__dirname + '/html/stock-reg.html')
+})
+app.post('/stock',(req,res)=>{
+  console.log(req.body)
+})
 
+
+//This is the second last chunk of code in this file, its used to handle 404 errors
 app.use((req, res) => res.status(404).send("Opps!Route Not found"));
 
 // 6.Bootstrapping Server
